@@ -1,0 +1,21 @@
+.cart-container{
+    height: 400px;
+    .example-sidenav{
+        width: 50%;
+    }
+}
+mat-drawer-container{
+    background-color: white;
+    width: 100%;
+}
+
+
+.example-sidenav-content{
+    background-color: white;
+}
+
+.total{
+    padding: 0 16px;
+    position: absolute;
+    bottom: 0;
+}

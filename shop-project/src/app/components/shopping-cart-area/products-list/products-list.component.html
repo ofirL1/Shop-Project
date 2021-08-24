@@ -1,0 +1,12 @@
+<div class="products-container">
+    <div class="search-bar">
+        <input [(ngModel)]="searchBarValue" type="text"/>
+        <button (click)="getProductsByName()" mat-button><mat-icon matSuffix>search</mat-icon></button>
+    </div>
+    <div class="category-list">
+        <option (click)="getProductsByCartegoryId($event)" *ngFor="let c of categories" value="{{c._id}}">{{c.name}}</option>
+    </div>
+    <div class="products-list">
+        <app-product-card *ngFor="let p of products" [product]="p"></app-product-card>
+    </div>
+</div>

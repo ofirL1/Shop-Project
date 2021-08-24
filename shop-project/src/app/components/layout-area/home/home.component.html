@@ -1,0 +1,13 @@
+<div class="home">
+    <div class="loginSection">
+        <div class="start-message">
+            <h4 *ngIf="!activeCart" (click)="goToShoppingPage()">Start Shopping</h4>
+            <h4 *ngIf="activeCart" (click)="goToShoppingPage()">Resume Shopping</h4>
+            <p>"available only for logged in users - secure it"</p>
+        </div>
+        <app-login *ngIf="!user"></app-login>
+    </div>
+
+    <app-about></app-about>
+    <app-shop-information></app-shop-information>
+</div>

@@ -1,0 +1,19 @@
+<mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-subtitle>{{product.categoryId.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" width="200px">
+    <mat-card-content>
+      <h3>Price:</h3>
+      <p>
+        {{product.price | currency}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <form #myForm="ngForm" >
+        <button mat-button (click)="addProductToCart()">Add To Cart</button>
+        <input  min="1" max="10" class="product-stock" type="number"  name="quantity" required [(ngModel)]="productQuantity">
+    </form>
+    </mat-card-actions>
+  </mat-card>

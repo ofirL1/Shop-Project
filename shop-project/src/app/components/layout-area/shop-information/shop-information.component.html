@@ -1,0 +1,10 @@
+<div class="shop-information">
+    <img src="assets/images/products.jpg" width="300px">
+    <h4>Available products in our store: {{productCount}}</h4>
+    <h4>Number of orders submitted in our store: {{orderCount}}</h4>
+    <div *ngIf="user" class="notification">
+        <p>
+            Notification: You have open cart from [date] / your last purchase was on [date]/Welcome [name]
+        </p>
+    </div>
+</div>

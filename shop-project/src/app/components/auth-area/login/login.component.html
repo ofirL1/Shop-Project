@@ -1,0 +1,50 @@
+<div class="login">
+    <!-- <div class="start-message">
+        <h4>Start Shopping/ Resume Shopping</h4>
+        <p>"available only for logged in users - secure it"</p>
+    </div> -->
+    <div class="verified_user">
+        <h1>Login</h1>
+        <mat-icon >verified_user</mat-icon>
+    </div>
+    <form #loginForm="ngForm" (submit)="login()">
+        <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" minlength="4" name="username" required [(ngModel)]="credintials.username" #username="ngModel">
+            <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+
+        <div class="error" *ngIf="username.invalid && (username.dirty || username.touched)">
+
+            <span *ngIf="username.errors?.required">
+                Username is required.
+            </span>
+            <span *ngIf="username.errors?.minlength">
+                Username must be 4
+            </span>
+        </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" name="password" required [(ngModel)]="credintials.password" #password="ngModel">
+            <mat-icon matSuffix>password</mat-icon>
+        </mat-form-field>
+
+        <div class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
+
+            <span *ngIf="password.errors?.required">
+                password is required.
+            </span>
+            <span *ngIf="password.errors?.minlength">
+                Username must be 4
+            </span>
+        </div>
+
+        <div class="loginButtons">
+            <button [disabled]=loginForm.form.invalid mat-raised-button color="primary">Login</button>
+            <button routerLink="/register"  mat-raised-button color="secondery">Sign Up</button>
+        </div>
+    </form>
+</div>
+
+

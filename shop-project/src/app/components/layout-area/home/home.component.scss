@@ -1,0 +1,36 @@
+.home{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+    app-login,app-about,app-shop-information{
+        width: 100%;
+    }
+    .loginSection{
+        width: 100% !important;
+    }
+}
+
+app-login,app-about,app-shop-information{
+    width: 420px;
+}
+
+.start-message{
+    padding: 5px;
+    text-align: center;
+    background-color: gray;
+    width: 200px;
+    border-radius: 3px;
+    margin: 0 auto;
+    
+}
+.loginSection{
+    padding-top: 20px;
+    width: 420px;
+
+}
+

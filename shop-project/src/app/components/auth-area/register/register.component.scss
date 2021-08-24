@@ -1,0 +1,39 @@
+.register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.verified_user{
+    width: 300px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    .material-icons {
+        font-size: 36px;  /* Preferred icon size */
+        color: red;
+        
+    }  
+}
+
+mat-form-field{
+    width: 400px;
+    height: 70px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    button{
+        width: 300px;
+        margin: 5px;
+    }
+}
+
+.error{
+    color: red;
+}

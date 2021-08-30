@@ -17,14 +17,17 @@ async function registerAsync(user){
 }
 
  async function loginAsync(credentials){
+    console.log(credentials);
+
     credentials.password = cryptoHelper.hash(credentials.password);
     let loginUser = await CustomerModel.findOne({"username": credentials.username, "password": credentials.password }," -password").exec();
+    if(!loginUser) return null;
+
     loginUser = loginUser.toObject();
     loginUser.token = jwtHelper.getNewToken(loginUser);
 
     // delete loginUser._id;
     // delete loginUser.password;
-
     return loginUser;
 }
 

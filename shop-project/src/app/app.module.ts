@@ -28,6 +28,8 @@ import { ShoppingCartComponent } from './components/shopping-cart-area/shopping-
 import { ProductCardComponent } from './components/shopping-cart-area/product-card/product-card.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import { QuantityDialogComponent } from './components/shopping-cart-area/product-card/quantity-dialog/quantity-dialog.component';
+import { RemoveCartDialogComponent } from './components/shopping-cart-area/cart/remove-cart-dialog/remove-cart-dialog.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     CartComponent,
     ProductsListComponent,
     ShoppingCartComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    QuantityDialogComponent,
+    RemoveCartDialogComponent
   ],
   imports: [
     BrowserModule,

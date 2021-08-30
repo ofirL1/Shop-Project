@@ -14,6 +14,8 @@ export const environment = {
   categoriesUrl: "http://localhost:3001/api/categories",
   ordersCount: "http://localhost:3001/api/orders/count",
   cartUrl: "http://localhost:3001/api/cart",
+  cartItemUrl: "http://localhost:3001/api/cart/item",
+  deleteCartItem: "http://localhost:3001/api/cart/item/"
 };
 
 /*

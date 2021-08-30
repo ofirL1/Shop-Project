@@ -1,12 +1,13 @@
 .cart-container{
-    height: 400px;
+    height: 1000px;
+    width: 100%;
     .example-sidenav{
-        width: 50%;
+        width: 400px;
     }
 }
 mat-drawer-container{
     background-color: white;
-    width: 100%;
+    width: 1000px;
 }
 
 
@@ -18,4 +19,17 @@ mat-drawer-container{
     padding: 0 16px;
     position: absolute;
     bottom: 0;
+}
+
+.cart-content{
+    padding: 0 80px;
+}
+
+.cart-header{
+    height: 40px;
+    border-bottom: 1px solid black;
+}
+
+mat-icon{
+    cursor: pointer;
 }

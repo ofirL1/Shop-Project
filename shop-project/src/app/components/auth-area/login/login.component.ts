@@ -1,3 +1,4 @@
+import { NotifyService } from './../../../services/notify.service';
 import { UserModel } from 'src/app/models/user.model';
 import { CredentialsModel } from './../../../models/credentials.model';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   public user = new UserModel;
   public credintials = new CredentialsModel;
-  constructor(private AuthService: AuthService, private router: Router) { }
+  constructor(private AuthService: AuthService, private router: Router, private NotifyService: NotifyService) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl("/home")
     }
     catch(err){
-      console.log(err.message)
+      this.NotifyService.error(err)
     }
     
 

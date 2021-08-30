@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Choose quantity to remove from this cart item</h1>
+<div mat-dialog-content>
+    <input  min="1" max={{data}} class="product-stock" type="number"  name="quantity" required [(ngModel)]="productQuantity">
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="productQuantity">Remove From Cart</button>
+    <button mat-button mat-dialog-close>Close</button>
+</div>

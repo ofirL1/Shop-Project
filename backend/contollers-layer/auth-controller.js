@@ -30,11 +30,8 @@ router.post("/login", async (request,response) => {
     try{
         const credentials = new CredentialsModel(request.body);
         const loginUser = await authLogic.loginAsync(credentials);
-
         if(!loginUser) return response.status(404).send("Incorrect username or password");
-        console.log(loginUser);
         const checkActiveCart = await activeCartHelper.checkCartActiveAsync(loginUser._id);
-        console.log(checkActiveCart);
         response.json({loginUser,activeCart: checkActiveCart});    
     }
     catch(err){

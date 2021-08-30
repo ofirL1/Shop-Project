@@ -1,17 +1,26 @@
 <mat-drawer-container class="cart-container" >
   <mat-drawer [opened]="true" #drawer class="example-sidenav" mode="side">
+    <div class="cart-header">
+      <h3>My Cart</h3>
+    </div>
     <mat-list>
-      <mat-list-item *ngFor="let c of cartItems"> Cart Item: {{c.productId.name}} {{c.quantity}} {{c.price | currency}} </mat-list-item>
+      <mat-list-item  *ngFor="let c of cartItems">
+        Cart Item:  {{c.productId.imagePath}} {{c.productId.name}} {{c.quantity}} {{c.price | currency}}
+        <mat-icon (click)="openDialog( c._id,c.quantity);">delete</mat-icon>
+
+      </mat-list-item>
     </mat-list>
     <div class="total">
-      <h3>Total:</h3> 
+      <h3>Total: {{this.totalCart | currency}}</h3>
+      <a>Order</a>
     </div>
   </mat-drawer>
-  <mat-drawer-content>
+  <mat-drawer-content class="cart-content">
 
     <button type="button" mat-button  (click)="drawer.toggle()">
       <h4>Open/Close Cart</h4>
     </button>
+    <app-products-list></app-products-list>
   </mat-drawer-content>
 
 </mat-drawer-container>

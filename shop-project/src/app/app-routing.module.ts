@@ -13,7 +13,9 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
   {path: "logout", component: LogoutComponent},
   {path: "home", component: HomeComponent},
-  {path: "shopping-cart",canActivate: [AuthGuard], component: ShoppingCartComponent}
+  {path: "shopping-cart",canActivate: [AuthGuard], component: ShoppingCartComponent},
+  { path: "", redirectTo: "/login", pathMatch: "full" }, // pathMath: "full" --> exact
+  {path: "**", component: HomeComponent}
 
 ];
 

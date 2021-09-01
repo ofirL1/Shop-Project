@@ -2,18 +2,22 @@
   <mat-drawer [opened]="true" #drawer class="example-sidenav" mode="side">
     <div class="cart-header">
       <h3>My Cart</h3>
+      <h3 class="remove-items">Remove All Cart Items</h3>
     </div>
     <mat-list>
       <mat-list-item  *ngFor="let c of cartItems">
         Cart Item:  {{c.productId.imagePath}} {{c.productId.name}} {{c.quantity}} {{c.price | currency}}
-        <mat-icon (click)="openDialog( c._id,c.quantity);">delete</mat-icon>
+        <mat-icon (click)="openDialog( c._id,c.quantity); test(c)">delete</mat-icon>
 
       </mat-list-item>
     </mat-list>
-    <div class="total">
-      <h3>Total: {{this.totalCart | currency}}</h3>
-      <a>Order</a>
-    </div>
+      <div class="total">
+        <h3>Total: {{this.totalCart | currency}}</h3>
+      </div>
+      <div class="order">
+        <h3>Order</h3>
+      </div>
+
   </mat-drawer>
   <mat-drawer-content class="cart-content">
 

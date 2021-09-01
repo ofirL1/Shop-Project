@@ -47,8 +47,8 @@ export function cartReducer(currentState: CartState = new CartState(), action: C
                 break;
               }
             const productExistInCartIndex = newState.ProductsCartItems.findIndex(p => p.productId.name === action.payload.productId.name); // find product by name
-            newState.ProductsCartItems[productExistInCartIndex].quantity = newState.ProductsCartItems[productExistInCartIndex].quantity+action.payload.quantity;
-            newState.ProductsCartItems[productExistInCartIndex].price = newState.ProductsCartItems[productExistInCartIndex].price + action.payload.quantity * action.payload.price;
+            newState.ProductsCartItems[productExistInCartIndex].quantity = action.payload.quantity;
+            newState.ProductsCartItems[productExistInCartIndex].price = action.payload.price;
 
             break;
         case CartActionType.CartItemRemoved: { 

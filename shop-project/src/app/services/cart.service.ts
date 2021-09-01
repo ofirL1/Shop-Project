@@ -19,16 +19,10 @@ export class CartService {
 
   public async addCartItem(item: ProductModel, quantity: number){
     try{
-      console.log(item)
       const addedItemCart = new CartItemModel(item,quantity);
-      console.log(addedItemCart)
-
-      // addedItemCart.price = item.price;
-      // addedItemCart.productId = item;
-      // addedItemCart.quantity = quantity;
-      // addedItemCart.cartId = JSON.parse(localStorage.getItem("activeCart"))._id;
-      await this.http.post<CartItemModel>(environment.cartItemUrl,addedItemCart).toPromise();
-      store.dispatch(cartAddedItem(addedItemCart))
+      const itemAdded = await this.http.post<CartItemModel>(environment.cartItemUrl,addedItemCart).toPromise();
+      store.dispatch(cartAddedItem(itemAdded))
+      
     }
     catch(err){
       this.NotifyService.error(err);
@@ -62,14 +56,11 @@ export class CartService {
     newCart.customerId = new UserModel();
     const user = store.getState().authState.user;
     newCart.customerId = user;
-    console.log(newCart);
     const addedCart = await this.http.post<CartModel>(environment.cartUrl,newCart).toPromise();
     return addedCart;
   }
 
   public async deleteCartItem(_id: string,quantity: number){
-    console.log(_id);
-    console.log(store.getState().cartState.ProductsCartItems);
     return await this.http.delete(environment.deleteCartItem + `${_id}/${quantity}`).toPromise();
 
   }

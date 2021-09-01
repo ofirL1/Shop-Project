@@ -36,7 +36,7 @@ router.delete("/:_id/:quantity", async (request,response) => {
         const quantity = +request.params.quantity;
         const _id = request.params._id; 
 
-        await cartItemLogic.removeCartitemAsync(_id,quantity);
+        await cartItemLogic.removeCartItemAsync(_id,quantity);
         response.sendStatus(204);    
     }
     catch(err){

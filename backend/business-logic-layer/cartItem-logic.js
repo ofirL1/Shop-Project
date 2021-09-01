@@ -8,18 +8,20 @@ function getCartItemAsync(){
 }
 
 async function addCartItemAsync(cartItem){
-    const item = await CartItemModel.findOne({"productId": cartItem.productId, "cartId": cartItem.cartId}).exec();
+    const item = await CartItemModel.findOne({"productId": cartItem.productId, "cartId": cartItem.cartId}).populate("productId").exec();
     console.log("item",item);
     if(item){
         item.price = cartItem.price * cartItem.quantity + item.price;
         item.quantity = item.quantity + cartItem.quantity;
         const info = await CartItemModel.updateOne({ _id: item._id }, item).exec();
+        console.log("info",item)
         return info.n ? item : null;
     }
-    return cartItem.save();
+    let x = await cartItem.save().then(c => c.populate("productId").execPopulate());
+    console.log("x",x);
 }
 
-async function removeCartitemAsync(_id ,quantity){
+async function removeCartItemAsync(_id ,quantity){
     const item = await CartItemModel.findById({_id}).populate("productId").exec();
     console.log(item.quantity === quantity);
     console.log(typeof item.quantity)
@@ -32,11 +34,14 @@ async function removeCartitemAsync(_id ,quantity){
     item.price = item.productId.price * item.quantity;
     const info = await CartItemModel.updateOne({ _id: _id }, item).exec();
     return info.n ? item : null;
+}
+
+async function removeAllCratItems(){
 
 }
 
 module.exports = {
     getCartItemAsync,
     addCartItemAsync,
-    removeCartitemAsync
+    removeCartItemAsync
 }

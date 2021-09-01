@@ -62,5 +62,10 @@ export class CartComponent implements OnInit {
     }
   }
 
+  test(c: CartItemModel){
+    console.log("tesst",c)
+    console.log("tesst",c._id)
+  }
+
   
 }
